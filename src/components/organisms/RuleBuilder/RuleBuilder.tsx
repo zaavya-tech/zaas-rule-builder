@@ -1,13 +1,14 @@
-import { Tabs } from "antd";
+import { Card, Tabs } from "antd";
 import { FC } from "react";
-import { Container } from "../../layouts/Container/Container";
-import { ScriptedRuleBuilder } from "./sections/ScriptedRuleBuilder/ScriptedRuleBuilder";
+import { RuleDescriptionForm } from "./components/RuleDescriptionForm";
+import { ScriptedRuleBuilder } from "./components/ScriptedRuleBuilder";
 
 const { TabPane } = Tabs;
 
 export const RuleBuilder: FC = () => {
   return (
-    <Container>
+    <Card title="Rule Engine Builder">
+      <RuleDescriptionForm />
       <Tabs defaultActiveKey="1">
         <TabPane tab="Scripted Rule" key="1">
           <ScriptedRuleBuilder />
@@ -19,6 +20,6 @@ export const RuleBuilder: FC = () => {
           Statement Rule Engine Builder
         </TabPane>
       </Tabs>
-    </Container>
+    </Card>
   );
 };

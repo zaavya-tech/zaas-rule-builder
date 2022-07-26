@@ -1,8 +1,7 @@
-import { Button, Form, Input, Radio } from "antd";
-import { useState } from "react";
-import { AttributeSelector } from "./AttributesSelector";
+import { Checkbox, Form, Input } from "antd";
+import { FC, useState } from "react";
 
-export const FormSection = () => {
+export const RuleDescriptionForm: FC = () => {
   const [form] = Form.useForm();
   const [requiredMark, setRequiredMarkType] = useState<boolean | "optional">(
     "optional"
@@ -11,9 +10,11 @@ export const FormSection = () => {
   return (
     <Form
       form={form}
-      layout="vertical"
+      layout="horizontal"
       initialValues={{ requiredMarkValue: requiredMark }}
       onValuesChange={setRequiredMarkType}
+      labelCol={{ lg: 3 }}
+      wrapperCol={{ lg: 8 }}
       requiredMark={requiredMark}
     >
       <Form.Item label="Rule Name" required>
@@ -25,11 +26,12 @@ export const FormSection = () => {
       </Form.Item>
 
       <Form.Item label="Rule Type">
-        <Radio.Group>
-          <Radio.Button value="small">Business Rule</Radio.Button>
-          <Radio.Button value="default">Validation Rule</Radio.Button>
-          <Radio.Button value="large">Transformation Rule</Radio.Button>
-        </Radio.Group>
+        <Checkbox.Group>
+          <Checkbox value="business">Business Rule</Checkbox>
+          <Checkbox value="validation">Validation Rule</Checkbox>
+          <Checkbox value="transformation">Transformation Rule</Checkbox>
+          <Checkbox value="others">Others</Checkbox>
+        </Checkbox.Group>
       </Form.Item>
 
       <Form.Item label="Rule Description">
@@ -37,14 +39,6 @@ export const FormSection = () => {
           rows={3}
           placeholder="Rule Description (maximum 500 characters)"
         />
-      </Form.Item>
-
-      <AttributeSelector />
-
-      <Form.Item>
-        <Button htmlType="submit" type="primary">
-          Submit
-        </Button>
       </Form.Item>
     </Form>
   );
