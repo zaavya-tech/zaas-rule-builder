@@ -13,8 +13,7 @@ export const RuleDescriptionForm: FC = () => {
       layout="horizontal"
       initialValues={{ requiredMarkValue: requiredMark }}
       onValuesChange={setRequiredMarkType}
-      labelCol={{ lg: 3 }}
-      wrapperCol={{ lg: 8 }}
+      labelCol={{ lg: 4, sm: 6 }}
       requiredMark={requiredMark}
     >
       <Form.Item label="Rule Name" required>

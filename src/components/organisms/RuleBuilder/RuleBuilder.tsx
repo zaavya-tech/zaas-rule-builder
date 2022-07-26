@@ -2,6 +2,7 @@ import { Card, Tabs } from "antd";
 import { FC } from "react";
 import { RuleDescriptionForm } from "./components/RuleDescriptionForm";
 import { ScriptedRuleBuilder } from "./components/ScriptedRuleBuilder";
+import { DecisionRuleBuilder } from "./components/DecisionRuleBuilder";
 
 const { TabPane } = Tabs;
 
@@ -14,7 +15,7 @@ export const RuleBuilder: FC = () => {
           <ScriptedRuleBuilder />
         </TabPane>
         <TabPane tab="Decision Table" key="2">
-          Decision Table Rule Builder
+          <DecisionRuleBuilder />
         </TabPane>
         <TabPane tab="Statement Rule Engine" key="3">
           Statement Rule Engine Builder

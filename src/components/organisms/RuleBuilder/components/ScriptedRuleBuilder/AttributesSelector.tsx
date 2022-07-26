@@ -11,21 +11,17 @@ export const AttributeSelector = () => {
               <div style={{ display: "flex", gap: 12, marginBottom: 10 }}>
                 <Select placeholder="Select Attribute" />
 
-                {fields.length > 1 ? (
-                  <Button
-                    type="primary"
-                    icon={<MinusCircleOutlined />}
-                    className="dynamic-delete-button"
-                    onClick={() => remove(field.name)}
-                  >
-                    Remove Above Field
-                  </Button>
-                ) : null}
+                <Button
+                  type="text"
+                  icon={<MinusCircleOutlined />}
+                  className="dynamic-delete-button"
+                  onClick={() => remove(field.name)}
+                />
               </div>
             ))}
 
             <Form.Item>
-              <Button onClick={add} style={{ width: '100%' }}>
+              <Button onClick={add} style={{ width: "100%" }}>
                 <PlusOutlined /> Add field
               </Button>
             </Form.Item>
