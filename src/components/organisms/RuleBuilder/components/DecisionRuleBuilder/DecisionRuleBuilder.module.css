@@ -4,5 +4,19 @@
 
 .builder {
   background-color: #f3f3f3;
-  padding: 10px;
+  padding: 10px !important;
+}
+
+.addColumn {
+  width: 100%;
+}
+
+.decisionColumn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.decisionColumn > * {
+  min-width: 120px;
 }

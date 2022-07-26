@@ -1,30 +1,37 @@
 import { Button, Col, Form, Row } from "antd";
-import { ColumnType } from "antd/lib/table";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { AttributePicker } from "./AttributePicker";
 import styles from "./DecisionRuleBuilder.module.css";
 import { MinusCircleOutlined } from "@ant-design/icons";
+import { TableColumn } from "./DecisionRuleBuilder";
+import { DecisionColumn } from "./DecisionColumn";
 
 type DecisionTableBuilderProps = {
-  onAddField: (fields: Array<any>) => void;
+  fields: TableColumn[];
+  onAddField: (fields: TableColumn[]) => void;
 };
 
 export const DecisionTableBuilder: FC<DecisionTableBuilderProps> = ({
+  fields,
   onAddField,
 }) => {
-  const [fields, setFields] = useState<ColumnType<any>[]>([]);
-
   const addNewField = () => {
     const updatedFields = [
       ...fields,
       {
-        key: `${fields.length}`,
         title: "",
+        key: `${fields.length}`,
         dataIndex: `${fields.length}`,
+        render: () => <DecisionColumn />,
       },
     ];
-    setFields(updatedFields);
     onAddField(updatedFields);
+  };
+
+  const onChangeSelectField = (value: string, index: number) => {
+    const selectedFields = [...fields];
+    selectedFields[index].title = value;
+    onAddField(selectedFields);
   };
 
   return (
@@ -35,12 +42,14 @@ export const DecisionTableBuilder: FC<DecisionTableBuilderProps> = ({
       <Row gutter={12}>
         {fields.map((field, index) => (
           <Col
+            span={4}
             style={{ display: "flex" }}
             className={styles["attribute-picker-col"]}
-            span={4}
             key={index}
           >
-            <AttributePicker onChangeValue={console.log} />
+            <AttributePicker
+              onChangeValue={(value) => onChangeSelectField(value, index)}
+            />
             <Button
               type="text"
               icon={<MinusCircleOutlined />}
@@ -50,7 +59,11 @@ export const DecisionTableBuilder: FC<DecisionTableBuilderProps> = ({
         ))}
 
         <Col className={styles["attribute-picker-col"]} span={4}>
-          <Button type="primary" onClick={addNewField}>
+          <Button
+            className={styles.addColumn}
+            type="primary"
+            onClick={addNewField}
+          >
             Add Column
           </Button>
         </Col>

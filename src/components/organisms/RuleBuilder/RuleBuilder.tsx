@@ -8,7 +8,7 @@ const { TabPane } = Tabs;
 
 export const RuleBuilder: FC = () => {
   return (
-    <Card title="Rule Engine Builder">
+    <Card title="Rule Engine Builder" style={{ maxWidth: 1300, margin: 'auto' }}>
       <RuleDescriptionForm />
       <Tabs defaultActiveKey="1">
         <TabPane tab="Scripted Rule" key="1">
