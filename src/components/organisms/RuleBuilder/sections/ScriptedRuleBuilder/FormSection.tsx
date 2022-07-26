@@ -1,5 +1,6 @@
 import { Button, Form, Input, Radio } from "antd";
 import { useState } from "react";
+import { AttributeSelector } from "./AttributesSelector";
 
 export const FormSection = () => {
   const [form] = Form.useForm();
@@ -38,8 +39,12 @@ export const FormSection = () => {
         />
       </Form.Item>
 
+      <AttributeSelector />
+
       <Form.Item>
-        <Button type="primary">Submit</Button>
+        <Button htmlType="submit" type="primary">
+          Submit
+        </Button>
       </Form.Item>
     </Form>
   );
