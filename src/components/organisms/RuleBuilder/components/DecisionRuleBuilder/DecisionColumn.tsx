@@ -1,7 +1,16 @@
 import { Select, Input } from "antd";
 import styles from "./DecisionRuleBuilder.module.css";
 
-const operations = ["greater than", "less than", "equals", "not equals"];
+const operations = [
+  "equals",
+  "not equals",
+  "less than",
+  "greater than",
+  "less than or equal",
+  "greater than or equal",
+  "contains",
+  "does not contain"
+];
 
 export const DecisionColumn = () => {
   return (

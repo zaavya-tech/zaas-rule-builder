@@ -1,0 +1,14 @@
+.conditional-statement {
+  padding: 10px 24px;
+  background-color: #fafafa;
+  border: 1px solid #f3f3f3;
+}
+
+.conditional-statement-row {
+  margin-bottom: 8px;
+} 
+
+.conditional-statement-actions {
+  display: flex;
+  gap: 10px;
+} 
