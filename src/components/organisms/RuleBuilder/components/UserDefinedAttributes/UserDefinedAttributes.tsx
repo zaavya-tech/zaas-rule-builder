@@ -81,7 +81,7 @@ export const UserDefinedAttributes: FC = () => {
   return (
     <div>
       <Divider></Divider>
-      <h4>Add Custom Attributes</h4>
+      <h3>Add Custom Attributes</h3>
       <h5 style={{ marginBottom: 20 }}>
         You can define your custom attributes for rule definition and can use
         anywhere!
