@@ -3,7 +3,8 @@
 }
 
 .builder {
-  background-color: #f3f3f3;
+  background-color: #f3f4f4;
+  border: 1px solid #9fb9ba;
   padding: 10px !important;
 }
 

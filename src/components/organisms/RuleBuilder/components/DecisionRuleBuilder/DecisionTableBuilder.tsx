@@ -9,11 +9,13 @@ import { DecisionColumn } from "./DecisionColumn";
 type DecisionTableBuilderProps = {
   fields: TableColumn[];
   onAddField: (fields: TableColumn[]) => void;
+  onDeleteField: (index: number) => void;
 };
 
 export const DecisionTableBuilder: FC<DecisionTableBuilderProps> = ({
   fields,
   onAddField,
+  onDeleteField,
 }) => {
   const addNewField = () => {
     const updatedFields = [
@@ -36,13 +38,12 @@ export const DecisionTableBuilder: FC<DecisionTableBuilderProps> = ({
 
   return (
     <Form.Item className={styles.builder}>
-      <h4>Select Fields (Table Columns)</h4>
-      <h5>Please select the list of fields to create a decision table</h5>
+      <h4>Select Input Fields</h4>
 
       <Row gutter={12}>
         {fields.map((field, index) => (
           <Col
-            span={4}
+            span={6}
             style={{ display: "flex" }}
             className={styles["attribute-picker-col"]}
             key={index}
@@ -54,20 +55,14 @@ export const DecisionTableBuilder: FC<DecisionTableBuilderProps> = ({
               type="text"
               icon={<MinusCircleOutlined />}
               className="dynamic-delete-button"
+              onClick={() => onDeleteField(index)}
             />
           </Col>
         ))}
-
-        <Col className={styles["attribute-picker-col"]} span={4}>
-          <Button
-            className={styles.addColumn}
-            type="primary"
-            onClick={addNewField}
-          >
-            Add Column
-          </Button>
-        </Col>
       </Row>
+      <Button type="primary" onClick={addNewField}>
+        Add Column
+      </Button>
     </Form.Item>
   );
 };

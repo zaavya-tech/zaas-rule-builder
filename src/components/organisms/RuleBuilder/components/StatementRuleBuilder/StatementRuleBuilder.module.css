@@ -1,13 +1,7 @@
 .conditional-statement {
   padding: 8px 18px !important;
   background-color: #f3f4f4;
-  margin-bottom: 10px;
   border: 1px solid #9fb9ba;
-}
-
-h4 {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
   margin-bottom: 10px;
 }
 

@@ -16,7 +16,6 @@ export const DecisionRuleBuilder: FC = () => {
   };
 
   const removeDataRow = (indexToRemove: number) => {
-    console.log({ indexToRemove })
     setDataSource(dataSource.filter((data, index) => indexToRemove !== index));
   };
 
@@ -29,9 +28,17 @@ export const DecisionRuleBuilder: FC = () => {
     setDataSource(updatedDataSource);
   };
 
+  const deleteColumn = (deleteIndex: number) => {
+    setColumns(columns.filter((column, index) => index !== deleteIndex));
+  };
+
   return (
     <div>
-      <DecisionTableBuilder fields={columns} onAddField={addNewColumn} />
+      <DecisionTableBuilder
+        fields={columns}
+        onAddField={addNewColumn}
+        onDeleteField={deleteColumn}
+      />
       <Table
         columns={[
           ...columns,
@@ -42,7 +49,9 @@ export const DecisionRuleBuilder: FC = () => {
                 icon={<MinusCircleOutlined />}
                 onClick={() => removeDataRow(index)}
                 className="dynamic-delete-button"
-              >Delete</Button>
+              >
+                Delete
+              </Button>
             ),
           },
         ]}
