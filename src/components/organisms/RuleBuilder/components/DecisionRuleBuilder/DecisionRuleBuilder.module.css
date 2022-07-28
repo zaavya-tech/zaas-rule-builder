@@ -21,3 +21,7 @@
 .decisionColumn > * {
   min-width: 120px;
 }
+
+td {
+  min-width: 300px !important;
+}

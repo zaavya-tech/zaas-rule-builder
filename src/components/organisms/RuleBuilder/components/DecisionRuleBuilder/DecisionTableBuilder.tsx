@@ -10,9 +10,11 @@ type DecisionTableBuilderProps = {
   fields: TableColumn[];
   onAddField: (fields: TableColumn[]) => void;
   onDeleteField: (index: number) => void;
+  label?: string;
 };
 
 export const DecisionTableBuilder: FC<DecisionTableBuilderProps> = ({
+  label,
   fields,
   onAddField,
   onDeleteField,
@@ -38,7 +40,7 @@ export const DecisionTableBuilder: FC<DecisionTableBuilderProps> = ({
 
   return (
     <Form.Item className={styles.builder}>
-      <h4>Select Input Fields</h4>
+      <h4>Select {label} Columns</h4>
 
       <Row gutter={12}>
         {fields.map((field, index) => (
@@ -59,10 +61,12 @@ export const DecisionTableBuilder: FC<DecisionTableBuilderProps> = ({
             />
           </Col>
         ))}
+        <Col span={9}>
+          <Button style={{ marginRight: 10 }} type="primary" onClick={addNewField}>
+            Add {label} Column
+          </Button>
+        </Col>
       </Row>
-      <Button type="primary" onClick={addNewField}>
-        Add Column
-      </Button>
     </Form.Item>
   );
 };

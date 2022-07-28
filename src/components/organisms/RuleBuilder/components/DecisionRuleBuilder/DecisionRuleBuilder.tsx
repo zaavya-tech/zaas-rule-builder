@@ -4,23 +4,31 @@ import { FC, useState } from "react";
 import { DecisionTableBuilder } from "./DecisionTableBuilder";
 import { MinusCircleOutlined } from "@ant-design/icons";
 import { PlusOutlined } from "@ant-design/icons";
+import { useDecisionRuleBuilder } from "./useDecisionRuleBuilder";
 
 export type TableColumn = ColumnType<Record<string, any>>;
 
 export const DecisionRuleBuilder: FC = () => {
-  const [columns, setColumns] = useState<TableColumn[]>([]);
-  const [dataSource, setDataSource] = useState<Record<string, any>[]>([]);
+  const {
+    columns: inputColumns,
+    addNewColumn: addNewInputColumn,
+    deleteColumn: deleteInputColumn,
+  } = useDecisionRuleBuilder();
 
-  const addNewColumn = (columns: TableColumn[]) => {
-    setColumns([...columns]);
-  };
+  const {
+    columns: outputColumns,
+    addNewColumn: addNewOuputColumn,
+    deleteColumn: deleteOuputColumn,
+  } = useDecisionRuleBuilder();
+
+  const [dataSource, setDataSource] = useState<Record<string, any>[]>([]);
 
   const removeDataRow = (indexToRemove: number) => {
     setDataSource(dataSource.filter((data, index) => indexToRemove !== index));
   };
 
   const addNewDataRow = () => {
-    const item = columns.reduce(
+    const item = inputColumns.reduce(
       (column, value) => ({ ...value, [column.dataIndex as string]: "" }),
       {}
     );
@@ -28,38 +36,41 @@ export const DecisionRuleBuilder: FC = () => {
     setDataSource(updatedDataSource);
   };
 
-  const deleteColumn = (deleteIndex: number) => {
-    setColumns(columns.filter((column, index) => index !== deleteIndex));
-  };
-
   return (
     <div>
       <DecisionTableBuilder
-        fields={columns}
-        onAddField={addNewColumn}
-        onDeleteField={deleteColumn}
+        fields={inputColumns}
+        onAddField={addNewInputColumn}
+        onDeleteField={deleteInputColumn}
+        label={"Input"}
+      />
+      <DecisionTableBuilder
+        fields={outputColumns}
+        onAddField={addNewOuputColumn}
+        onDeleteField={deleteOuputColumn}
+        label={"Output"}
       />
       <Table
+        style={{ overflowX: 'scroll', display: 'block'  }}
         columns={[
-          ...columns,
+          ...inputColumns,
+          ...outputColumns,
           {
             render: (value, type, index) => (
               <Button
-                type="primary"
+                type="link"
                 icon={<MinusCircleOutlined />}
                 onClick={() => removeDataRow(index)}
                 className="dynamic-delete-button"
-              >
-                Delete
-              </Button>
+              />
             ),
           },
         ]}
         dataSource={dataSource}
       />
       <Divider />
-      <Button onClick={addNewDataRow} type="dashed">
-        <PlusOutlined /> Add Conditon Row
+      <Button onClick={addNewDataRow} type="primary">
+        <PlusOutlined /> Add Condition Row
       </Button>
     </div>
   );
