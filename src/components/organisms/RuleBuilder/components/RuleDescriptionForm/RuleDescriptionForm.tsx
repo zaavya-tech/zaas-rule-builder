@@ -35,8 +35,8 @@ export const RuleDescriptionForm: FC = () => {
 
       <Form.Item label="Rule Description">
         <Input.TextArea
-          rows={3}
-          placeholder="Rule Description (maximum 500 characters)"
+          rows={1}
+          placeholder="Rule Description (maximum 200 characters)"
         />
       </Form.Item>
     </Form>

@@ -6,6 +6,7 @@ import { RuleDescriptionForm } from "./components/RuleDescriptionForm";
 import { ScriptedRuleBuilder } from "./components/ScriptedRuleBuilder";
 import { DecisionRuleBuilder } from "./components/DecisionRuleBuilder";
 import { StatementRuleBuilder } from "./components/StatementRuleBuilder";
+import { UserDefinedAttributes } from "./components/UserDefinedAttributes/UserDefinedAttributes";
 
 const { TabPane } = Tabs;
 
@@ -16,6 +17,9 @@ export const RuleBuilder: FC = () => {
       style={{ maxWidth: 1200, margin: "auto" }}
     >
       <RuleDescriptionForm />
+
+      <UserDefinedAttributes />
+
       <Tabs defaultActiveKey="1">
         <TabPane tab="Scripted Rule" key="1">
           <ScriptedRuleBuilder />
