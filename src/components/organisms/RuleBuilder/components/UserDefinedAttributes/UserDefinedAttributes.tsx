@@ -1,5 +1,6 @@
 import { Popover, Button, Input, Select, Divider, Tag } from "antd";
-import { FC, useCallback, useMemo, useState } from "react";
+import { FC, useCallback, useContext, useMemo, useState } from "react";
+import { RuleBuilderContext } from "../../RuleBuilder";
 import styles from "./UserDefinedAttributes.module.css";
 
 const typeOptions = [
@@ -35,7 +36,7 @@ type Attribute = {
 };
 
 export const UserDefinedAttributes: FC = () => {
-  const [attributes, setAttributes] = useState<Attribute[]>([]);
+  const { attributes, setAttributes } = useContext(RuleBuilderContext);
   const [newAttribute, setNewAttribute] = useState<Attribute>();
 
   const onChangeValue = useCallback((key: keyof Attribute, value: string) => {
@@ -45,9 +46,9 @@ export const UserDefinedAttributes: FC = () => {
   }, []);
 
   const addAttribute = useCallback(() => {
-    setAttributes((attributes) => [...attributes, newAttribute as Attribute]);
+    setAttributes?.((attributes) => [...attributes, newAttribute as Attribute]);
     setNewAttribute({ name: "", type: "" });
-  }, [newAttribute]);
+  }, [setAttributes, newAttribute]);
 
   const content = useMemo(
     () => (
@@ -92,8 +93,8 @@ export const UserDefinedAttributes: FC = () => {
 
       <div style={{ marginTop: 10 }}>
         {attributes.map((attribute) => (
-          <Tag color={"blue"}>
-            {attribute.name}: {attribute.type}
+          <Tag key={attribute.name} color={"blue"}>
+            {attribute.name} :: {attribute.type}
           </Tag>
         ))}
       </div>
