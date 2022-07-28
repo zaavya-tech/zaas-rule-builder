@@ -1,40 +1,24 @@
-import { TreeSelect } from "antd";
+import { Select } from "antd";
 import { FC } from "react";
-
-const { TreeNode } = TreeSelect;
+import { getDropdownOptions } from "../../../../../configs/getMetadata";
 
 type AttributePickerProps = {
   value?: string;
   onChangeValue: (value: string) => void;
 };
 
+const dropdownOptions = getDropdownOptions();
+
 export const AttributePicker: FC<AttributePickerProps> = ({
   value,
   onChangeValue,
 }) => {
   return (
-    <TreeSelect
-      showSearch
-      style={{ width: "100%" }}
+    <Select
+      placeholder="Select Attribute"
       value={value}
-      dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
-      placeholder="Please select"
-      allowClear
-      treeDefaultExpandAll
       onChange={onChangeValue}
-    >
-      <TreeNode value="parent 1" title="parent 1">
-        <TreeNode value="parent 1-0" title="parent 1-0">
-          <TreeNode value="leaf1" title="leaf1" />
-          <TreeNode value="leaf2" title="leaf2" />
-        </TreeNode>
-        <TreeNode value="parent 1-1" title="parent 1-1">
-          <TreeNode
-            value="leaf3"
-            title={<b style={{ color: "#08c" }}>leaf3</b>}
-          />
-        </TreeNode>
-      </TreeNode>
-    </TreeSelect>
+      options={dropdownOptions}
+    />
   );
 };

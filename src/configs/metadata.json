@@ -1,0 +1,361 @@
+{
+  "ReportSpec": {
+    "id": 1658872306206,
+    "Id": {
+      "type": "NUMBER",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "templateId": {
+      "type": "NUMBER",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "name": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "practitioner": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "range": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "method": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "email": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "OrderRenasightSpec": {
+    "id": 1658872306206,
+    "reportVUS": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "chronicKidneyDisease": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "kidneyTransplant": {
+      "type": "Boolean",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "orderEligibleLab": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "isRedraw": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "ProductSpec": {
+    "id": 1658872306206,
+    "description": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "name": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "productLine": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "Id": {
+      "type": "NUMBER",
+      "min": 1,
+      "max": 1,
+      "length": null,
+      "primaryKey": true,
+      "indexed": true
+    },
+    "enabled": {
+      "type": "Boolean",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "KeyValueSpec": {
+    "id": 1658872306206,
+    "value": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "enabled": {
+      "type": "Boolean",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "key": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "FulfillmentSpec": {
+    "id": 1658872306207,
+    "productId": {
+      "type": "NUMBER",
+      "min": 1,
+      "max": 10,
+      "length": null
+    },
+    "name": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "enabled": {
+      "type": "Boolean",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "Id": {
+      "type": "NUMBER",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "SampleSubSpec": {
+    "id": 1658872306207,
+    "unit": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "specimenType": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "sampleEligibleLab": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "container": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "OrderEmpowerSpec": {
+    "id": 1658872306207,
+    "isRedraw": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "orderEligibleLab": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "familyHistoryOfCancer": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "personalHistoryOfCancer": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "STAT": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "LabSpec": {
+    "id": 1658872306207,
+    "value": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "description": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "enabled": {
+      "type": "Boolean",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "key": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "BusinessHierarchySpec": {
+    "id": 1658872306207,
+    "name": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "code": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "Id": {
+      "type": "NUMBER",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "codePath": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "LabWorkflowSubSpec": {
+    "id": 1658872306207,
+    "labWorkflowEligibleLab": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "panelCategory": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "ProcesHierarchySpec": {
+    "id": 1658872306207,
+    "name": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "Id": {
+      "type": "NUMBER",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "codePath": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "code": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "OrderHorizonSpec": {
+    "id": 1658872306207,
+    "tSEAdded": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "partnerConsent": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "panoAdded": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "orderEligibleLab": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    },
+    "isRedraw": {
+      "type": "STRING",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  },
+  "TypeSpecSample": {
+    "id": 1658872306207,
+    "sampleAttrib": {
+      "type": "NUMBER",
+      "min": 1,
+      "max": 1,
+      "length": null
+    }
+  }
+}
