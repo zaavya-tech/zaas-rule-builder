@@ -1,7 +1,28 @@
 .conditional-statement {
-  padding: 10px 24px;
-  background-color: #fafafa;
-  border: 1px solid #f3f3f3;
+  padding: 8px 18px !important;
+  background-color: #f3f4f4;
+  margin-bottom: 10px;
+  border: 1px solid #9fb9ba;
+}
+
+h4 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.output-statement {
+  padding: 8px 18px !important;
+  background-color: #f1f7f2;
+  border: 1px solid #9da69a;
+}
+
+.output-statement-item {
+  margin-bottom: 0 !important;
+}
+
+.conditional-statement-item {
+  margin-bottom: 0 !important;
 }
 
 .conditional-statement-row {
@@ -9,6 +30,6 @@
 } 
 
 .conditional-statement-actions {
-  display: flex;
-  gap: 10px;
+  display: flex !important;
+  justify-content: space-around;
 } 
